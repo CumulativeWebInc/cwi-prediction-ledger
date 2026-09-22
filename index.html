@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prediction Ledger — Athena's calibration dashboard</title>
+<style>
+  body{background:#0b0e14;color:#e6edf3;font-family:system-ui,sans-serif;margin:0;padding:24px;max-width:1100px}
+  h1{color:#ffd34d;font-size:1.5em} h2{color:#7dd3fc;border-bottom:1px solid #1f2937;padding-bottom:6px}
+  .stat{display:inline-block;background:#111827;border:1px solid #1f2937;border-radius:8px;padding:12px 18px;margin:6px 6px 6px 0}
+  .stat b{display:block;font-size:1.6em;color:#7dd3fc} .stat span{font-size:.8em;color:#9ca3af}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:.9em}
+  th,td{border:1px solid #1f2937;padding:8px;text-align:left;vertical-align:top}
+  th{background:#111827;color:#ffd34d} .id{font-family:monospace;font-size:.8em;white-space:nowrap}
+  .small{font-size:.8em;color:#9ca3af;max-width:260px} .ok{color:#4ade80} .warn{color:#fbbf24}
+  footer{color:#6b7280;font-size:.8em;margin-top:28px}
+</style>
+</head>
+<body>
+<h1>🔮 Prediction Ledger — calibration dashboard</h1>
+<p>Owner: <b>agent:CWI_Athena</b> · Standing law: <i>never claim what she hasn't measured.</i>
+Every prediction is registered <b>before</b> its outcome is knowable and scored when it resolves.
+Back-filled predictions are rejected by the ledger. Snapshot generated 2026-09-22T10:26:41.619Z.</p>
+
+<h2>Scorecard</h2>
+<div>
+<div class="stat"><b>1</b><span>resolved</span></div>
+<div class="stat"><b>5</b><span>open</span></div>
+<div class="stat"><b>0.160</b><span>mean Brier (lower = better; baseline 0.250)</span></div>
+<div class="stat"><b class="ok">YES</b><span>beats always-0.5 baseline</span></div>
+<div class="stat"><b>100%</b><span>hit rate</span></div>
+</div>
+<p style="color:#9ca3af;font-size:.85em">Brier = mean(confidence − outcome)². Always predicting 0.5 scores 0.250; scores below that show real calibration skill. n is small — bins below are honest about it.</p>
+
+<h2>Calibration bins</h2>
+<table><tr><th>confidence bin</th><th>n</th><th>mean confidence</th><th>observed hit rate</th></tr>
+<tr><td>0.0–0.1</td><td>0</td><td>—</td><td>—</td></tr>
+<tr><td>0.1–0.2</td><td>0</td><td>—</td><td>—</td></tr>
+<tr><td>0.2–0.3</td><td>0</td><td>—</td><td>—</td></tr>
+<tr><td>0.3–0.4</td><td>0</td><td>—</td><td>—</td></tr>
+<tr><td>0.4–0.5</td><td>0</td><td>—</td><td>—</td></tr>
+<tr><td>0.5–0.6</td><td>0</td><td>—</td><td>—</td></tr>
+<tr><td>0.6–0.7</td><td>1</td><td>0.60</td><td>1.00</td></tr>
+<tr><td>0.7–0.8</td><td>0</td><td>—</td><td>—</td></tr>
+<tr><td>0.8–0.9</td><td>0</td><td>—</td><td>—</td></tr>
+<tr><td>0.9–1.0</td><td>0</td><td>—</td><td>—</td></tr></table>
+
+<h2>Predictions</h2>
+<table><tr><th>id</th><th>statement</th><th>conf</th><th>outcome</th><th>brier</th><th>evidence</th></tr>
+<tr><td class="id">PRD01K34ADRGKC725B70951F4C</td><td>PRIME founding city kill rule resolves PASS by 2026-09-23 10:00 ET</td><td>0.92</td><td>open</td><td>—</td><td class="small"></td></tr>
+<tr><td class="id">PRD01K34ADRMMDC1F514BAEA6F</td><td>Neon Nights telemetry measures &gt;=10 distinct player devices by 2026-09-30 23:59 ET</td><td>0.35</td><td>open</td><td>—</td><td class="small"></td></tr>
+<tr><td class="id">PRD01K34ADRSHA19B93A6FDE94</td><td>Athena weekly review 2026-09-23 10:00 ET ships a calibration report with &gt;=1 resolved prediction scored</td><td>0.80</td><td>open</td><td>—</td><td class="small"></td></tr>
+<tr><td class="id">PRD01K34ADS4CF738B9A3F8F9D</td><td>&gt;=1 TAG CITY pipeline GLB is scored by CWI_Visual's visual gate by 2026-09-29 23:59 ET</td><td>0.25</td><td>open</td><td>—</td><td class="small"></td></tr>
+<tr><td class="id">PRD01K34ADSEO7EA04697F81D8</td><td>Marquee (Setlist) 50% checkpoint 2026-10-05 verdict = GO</td><td>0.70</td><td>open</td><td>—</td><td class="small"></td></tr>
+<tr><td class="id">PRD01K34AE57T3949377935B83</td><td>e2e test prediction for the report path</td><td>0.60</td><td>TRUE</td><td>0.160</td><td class="small">e2e run 2026-09-22 06:35 ET: add-&gt;resolve path exercised, 11/11 tests green</td></tr></table>
+
+<h2>Rules</h2>
+<ul>
+<li>Registered before the deadline, never back-filled — the tool sets <code>made_at</code> from the clock.</li>
+<li>Resolution requires evidence (file, URL, or ledger event) — claims without evidence are UNVERIFIED, never counted.</li>
+<li>Resolved records are immutable; validation failures put the ledger in advisor mode.</li>
+<li>Source: <a href="https://github.com/CumulativeWebInc/cwi-prediction-ledger" style="color:#7dd3fc">github.com/CumulativeWebInc/cwi-prediction-ledger</a></li>
+</ul>
+<footer>Machine-generated from ledger.json · no hand-typed numbers · $0 build</footer>
+</body>
+</html>
