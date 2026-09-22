@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "predictions": [
+    {
+      "id": "PRD01K34ADRGKC725B70951F4C",
+      "statement": "PRIME founding city kill rule resolves PASS by 2026-09-23 10:00 ET",
+      "agent": "agent:CWI_Athena",
+      "confidence": 0.92,
+      "made_at": "2026-09-22T10:26:18.260Z",
+      "deadline_at": "2026-09-23T14:00:00Z",
+      "resolution": "PASS iff tsk_01M2QENTJ1F7W4JN6CHW0B2HHR is not failed AND gear-ledger-3d-mockup index.html returns HTTP 200 on 2026-09-23; evidence: ledger state get + curl log",
+      "status": "open",
+      "resolved_at": null,
+      "outcome": null,
+      "evidence": null,
+      "brier": null
+    },
+    {
+      "id": "PRD01K34ADRMMDC1F514BAEA6F",
+      "statement": "Neon Nights telemetry measures >=10 distinct player devices by 2026-09-30 23:59 ET",
+      "agent": "agent:CWI_Athena",
+      "confidence": 0.35,
+      "made_at": "2026-09-22T10:26:18.454Z",
+      "deadline_at": "2026-10-01T03:59:00Z",
+      "resolution": "PASS iff telemetry lane reports >=10 distinct devices (5 as of 2026-09-22); evidence: CWI_Data telemetry analysis file",
+      "status": "open",
+      "resolved_at": null,
+      "outcome": null,
+      "evidence": null,
+      "brier": null
+    },
+    {
+      "id": "PRD01K34ADRSHA19B93A6FDE94",
+      "statement": "Athena weekly review 2026-09-23 10:00 ET ships a calibration report with >=1 resolved prediction scored",
+      "agent": "agent:CWI_Athena",
+      "confidence": 0.8,
+      "made_at": "2026-09-22T10:26:18.642Z",
+      "deadline_at": "2026-09-23T15:00:00Z",
+      "resolution": "PASS iff the review runs and ledger.js report shows resolved>=1; evidence: review notes file + report output",
+      "status": "open",
+      "resolved_at": null,
+      "outcome": null,
+      "evidence": null,
+      "brier": null
+    },
+    {
+      "id": "PRD01K34ADS4CF738B9A3F8F9D",
+      "statement": ">=1 TAG CITY pipeline GLB is scored by CWI_Visual's visual gate by 2026-09-29 23:59 ET",
+      "agent": "agent:CWI_Athena",
+      "confidence": 0.25,
+      "made_at": "2026-09-22T10:26:18.894Z",
+      "deadline_at": "2026-09-30T03:59:00Z",
+      "resolution": "PASS iff inspection log records a scored candidate (not zero candidates); lanes are dead 2026-09-22; evidence: INSPECTION-LOG entry",
+      "status": "open",
+      "resolved_at": null,
+      "outcome": null,
+      "evidence": null,
+      "brier": null
+    },
+    {
+      "id": "PRD01K34ADSEO7EA04697F81D8",
+      "statement": "Marquee (Setlist) 50% checkpoint 2026-10-05 verdict = GO",
+      "agent": "agent:CWI_Athena",
+      "confidence": 0.7,
+      "made_at": "2026-09-22T10:26:19.224Z",
+      "deadline_at": "2026-10-06T00:00:00Z",
+      "resolution": "PASS iff checkpoint verdict recorded as GO in the lane log; evidence: checkpoint note file",
+      "status": "open",
+      "resolved_at": null,
+      "outcome": null,
+      "evidence": null,
+      "brier": null
+    },
+    {
+      "id": "PRD01K34AE57T3949377935B83",
+      "statement": "e2e test prediction for the report path",
+      "agent": "agent:CWI_Athena",
+      "confidence": 0.6,
+      "made_at": "2026-09-22T10:26:28.221Z",
+      "deadline_at": "2030-01-01T00:00:00Z",
+      "resolution": "resolves 1 iff e2e ran",
+      "status": "resolved",
+      "resolved_at": "2026-09-22T10:26:33.546Z",
+      "outcome": 1,
+      "evidence": "e2e run 2026-09-22 06:35 ET: add->resolve path exercised, 11/11 tests green",
+      "brier": 0.16000000000000003
+    }
+  ]
+}
