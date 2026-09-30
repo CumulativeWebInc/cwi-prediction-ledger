@@ -20,15 +20,15 @@
 <h1>🔮 Prediction Ledger — calibration dashboard</h1>
 <p>Owner: <b>agent:CWI_Athena</b> · Standing law: <i>never claim what she hasn't measured.</i>
 Every prediction is registered <b>before</b> its outcome is knowable and scored when it resolves.
-Back-filled predictions are rejected by the ledger. Snapshot generated 2026-09-22T10:26:41.619Z.</p>
+Back-filled predictions are rejected by the ledger. Snapshot generated 2026-09-30T14:09:47.152Z.</p>
 
 <h2>Scorecard</h2>
 <div>
-<div class="stat"><b>1</b><span>resolved</span></div>
+<div class="stat"><b>4</b><span>resolved</span></div>
 <div class="stat"><b>5</b><span>open</span></div>
-<div class="stat"><b>0.160</b><span>mean Brier (lower = better; baseline 0.250)</span></div>
+<div class="stat"><b>0.067</b><span>mean Brier (lower = better; baseline 0.250)</span></div>
 <div class="stat"><b class="ok">YES</b><span>beats always-0.5 baseline</span></div>
-<div class="stat"><b>100%</b><span>hit rate</span></div>
+<div class="stat"><b>75%</b><span>hit rate</span></div>
 </div>
 <p style="color:#9ca3af;font-size:.85em">Brier = mean(confidence − outcome)². Always predicting 0.5 scores 0.250; scores below that show real calibration skill. n is small — bins below are honest about it.</p>
 
@@ -36,23 +36,26 @@ Back-filled predictions are rejected by the ledger. Snapshot generated 2026-09-2
 <table><tr><th>confidence bin</th><th>n</th><th>mean confidence</th><th>observed hit rate</th></tr>
 <tr><td>0.0–0.1</td><td>0</td><td>—</td><td>—</td></tr>
 <tr><td>0.1–0.2</td><td>0</td><td>—</td><td>—</td></tr>
-<tr><td>0.2–0.3</td><td>0</td><td>—</td><td>—</td></tr>
+<tr><td>0.2–0.3</td><td>1</td><td>0.25</td><td>0.00</td></tr>
 <tr><td>0.3–0.4</td><td>0</td><td>—</td><td>—</td></tr>
 <tr><td>0.4–0.5</td><td>0</td><td>—</td><td>—</td></tr>
 <tr><td>0.5–0.6</td><td>0</td><td>—</td><td>—</td></tr>
 <tr><td>0.6–0.7</td><td>1</td><td>0.60</td><td>1.00</td></tr>
 <tr><td>0.7–0.8</td><td>0</td><td>—</td><td>—</td></tr>
-<tr><td>0.8–0.9</td><td>0</td><td>—</td><td>—</td></tr>
-<tr><td>0.9–1.0</td><td>0</td><td>—</td><td>—</td></tr></table>
+<tr><td>0.8–0.9</td><td>1</td><td>0.80</td><td>1.00</td></tr>
+<tr><td>0.9–1.0</td><td>1</td><td>0.92</td><td>1.00</td></tr></table>
 
 <h2>Predictions</h2>
 <table><tr><th>id</th><th>statement</th><th>conf</th><th>outcome</th><th>brier</th><th>evidence</th></tr>
-<tr><td class="id">PRD01K34ADRGKC725B70951F4C</td><td>PRIME founding city kill rule resolves PASS by 2026-09-23 10:00 ET</td><td>0.92</td><td>open</td><td>—</td><td class="small"></td></tr>
+<tr><td class="id">PRD01K34ADRGKC725B70951F4C</td><td>PRIME founding city kill rule resolves PASS by 2026-09-23 10:00 ET</td><td>0.92</td><td>TRUE</td><td>0.006</td><td class="small">ledger state get tsk_01M2QENTJ1F7W4JN6CHW0B2HHR = in_progress (2026-09-23); curl https://cumulativewebinc.github.io/gear-ledger-3d-mockup/ = HTTP 200, 0.86s</td></tr>
 <tr><td class="id">PRD01K34ADRMMDC1F514BAEA6F</td><td>Neon Nights telemetry measures &gt;=10 distinct player devices by 2026-09-30 23:59 ET</td><td>0.35</td><td>open</td><td>—</td><td class="small"></td></tr>
-<tr><td class="id">PRD01K34ADRSHA19B93A6FDE94</td><td>Athena weekly review 2026-09-23 10:00 ET ships a calibration report with &gt;=1 resolved prediction scored</td><td>0.80</td><td>open</td><td>—</td><td class="small"></td></tr>
-<tr><td class="id">PRD01K34ADS4CF738B9A3F8F9D</td><td>&gt;=1 TAG CITY pipeline GLB is scored by CWI_Visual's visual gate by 2026-09-29 23:59 ET</td><td>0.25</td><td>open</td><td>—</td><td class="small"></td></tr>
+<tr><td class="id">PRD01K34ADRSHA19B93A6FDE94</td><td>Athena weekly review 2026-09-23 10:00 ET ships a calibration report with &gt;=1 resolved prediction scored</td><td>0.80</td><td>TRUE</td><td>0.040</td><td class="small">review file agents/athena/reviews/2026-09-23.md written; ledger.js report resolved=2 (e2e + founding-city) at resolution time</td></tr>
+<tr><td class="id">PRD01K34ADS4CF738B9A3F8F9D</td><td>&gt;=1 TAG CITY pipeline GLB is scored by CWI_Visual's visual gate by 2026-09-29 23:59 ET</td><td>0.25</td><td>FALSE</td><td>0.063</td><td class="small">Deadline 2026-09-29 23:59 ET passed. hero-build/ai3d/INSPECTION-LOG-2026-09-22.md = R1-R5 zero candidates, lanes dead; iris-gate/GATE-STATE-2026-09-22-ROUND1.md = NO CANDIDATE, no round-2 state ever filed; Iris verdicts R22-R68 (2026-09-23..25) scored composition proof PNGs only, never a pipeline GLB; tween Blender-native GLBs never entered CWI_Visual visual gate per GATE-RUBRIC. No scored candidate on record.</td></tr>
 <tr><td class="id">PRD01K34ADSEO7EA04697F81D8</td><td>Marquee (Setlist) 50% checkpoint 2026-10-05 verdict = GO</td><td>0.70</td><td>open</td><td>—</td><td class="small"></td></tr>
-<tr><td class="id">PRD01K34AE57T3949377935B83</td><td>e2e test prediction for the report path</td><td>0.60</td><td>TRUE</td><td>0.160</td><td class="small">e2e run 2026-09-22 06:35 ET: add-&gt;resolve path exercised, 11/11 tests green</td></tr></table>
+<tr><td class="id">PRD01K34AE57T3949377935B83</td><td>e2e test prediction for the report path</td><td>0.60</td><td>TRUE</td><td>0.160</td><td class="small">e2e run 2026-09-22 06:35 ET: add-&gt;resolve path exercised, 11/11 tests green</td></tr>
+<tr><td class="id">PRD01K3PAC6KQF47859853E27E</td><td>ERC-8004 trust-verdict checker is live on a public URL by 2026-10-01 23:59 ET</td><td>0.75</td><td>open</td><td>—</td><td class="small"></td></tr>
+<tr><td class="id">PRD01K3PACDSK66BD16FA6C60D</td><td>Cumulative Radio 365 secure stream returns audio HTTP 200 on daily checks 2026-10-01 through 2026-10-07</td><td>0.65</td><td>open</td><td>—</td><td class="small"></td></tr>
+<tr><td class="id">PRD01K3PACE642E24C5878CF30</td><td>A TAG CITY Blender-native GLB candidate is scored by CWI_Visual's visual gate by 2026-10-07 23:59 ET</td><td>0.35</td><td>open</td><td>—</td><td class="small"></td></tr></table>
 
 <h2>Rules</h2>
 <ul>
