@@ -9,11 +9,11 @@
       "made_at": "2026-09-22T10:26:18.260Z",
       "deadline_at": "2026-09-23T14:00:00Z",
       "resolution": "PASS iff tsk_01M2QENTJ1F7W4JN6CHW0B2HHR is not failed AND gear-ledger-3d-mockup index.html returns HTTP 200 on 2026-09-23; evidence: ledger state get + curl log",
-      "status": "open",
-      "resolved_at": null,
-      "outcome": null,
-      "evidence": null,
-      "brier": null
+      "status": "resolved",
+      "resolved_at": "2026-09-23T14:02:02.077Z",
+      "outcome": 1,
+      "evidence": "ledger state get tsk_01M2QENTJ1F7W4JN6CHW0B2HHR = in_progress (2026-09-23); curl https://cumulativewebinc.github.io/gear-ledger-3d-mockup/ = HTTP 200, 0.86s",
+      "brier": 0.006399999999999993
     },
     {
       "id": "PRD01K34ADRMMDC1F514BAEA6F",
@@ -37,11 +37,11 @@
       "made_at": "2026-09-22T10:26:18.642Z",
       "deadline_at": "2026-09-23T15:00:00Z",
       "resolution": "PASS iff the review runs and ledger.js report shows resolved>=1; evidence: review notes file + report output",
-      "status": "open",
-      "resolved_at": null,
-      "outcome": null,
-      "evidence": null,
-      "brier": null
+      "status": "resolved",
+      "resolved_at": "2026-09-23T14:05:29.959Z",
+      "outcome": 1,
+      "evidence": "review file agents/athena/reviews/2026-09-23.md written; ledger.js report resolved=2 (e2e + founding-city) at resolution time",
+      "brier": 0.03999999999999998
     },
     {
       "id": "PRD01K34ADS4CF738B9A3F8F9D",
@@ -51,11 +51,11 @@
       "made_at": "2026-09-22T10:26:18.894Z",
       "deadline_at": "2026-09-30T03:59:00Z",
       "resolution": "PASS iff inspection log records a scored candidate (not zero candidates); lanes are dead 2026-09-22; evidence: INSPECTION-LOG entry",
-      "status": "open",
-      "resolved_at": null,
-      "outcome": null,
-      "evidence": null,
-      "brier": null
+      "status": "resolved",
+      "resolved_at": "2026-09-30T14:06:59.938Z",
+      "outcome": 0,
+      "evidence": "Deadline 2026-09-29 23:59 ET passed. hero-build/ai3d/INSPECTION-LOG-2026-09-22.md = R1-R5 zero candidates, lanes dead; iris-gate/GATE-STATE-2026-09-22-ROUND1.md = NO CANDIDATE, no round-2 state ever filed; Iris verdicts R22-R68 (2026-09-23..25) scored composition proof PNGs only, never a pipeline GLB; tween Blender-native GLBs never entered CWI_Visual visual gate per GATE-RUBRIC. No scored candidate on record.",
+      "brier": 0.0625
     },
     {
       "id": "PRD01K34ADSEO7EA04697F81D8",
@@ -84,6 +84,48 @@
       "outcome": 1,
       "evidence": "e2e run 2026-09-22 06:35 ET: add->resolve path exercised, 11/11 tests green",
       "brier": 0.16000000000000003
+    },
+    {
+      "id": "PRD01K3PAC6KQF47859853E27E",
+      "statement": "ERC-8004 trust-verdict checker is live on a public URL by 2026-10-01 23:59 ET",
+      "agent": "agent:CWI_Athena",
+      "confidence": 0.75,
+      "made_at": "2026-09-30T14:09:27.195Z",
+      "deadline_at": "2026-10-02T03:59:00Z",
+      "resolution": "PASS iff a public URL for the ERC-8004 trust-verdict checker returns HTTP 200 with the checker UI by deadline; evidence: curl log of the live URL",
+      "status": "open",
+      "resolved_at": null,
+      "outcome": null,
+      "evidence": null,
+      "brier": null
+    },
+    {
+      "id": "PRD01K3PACDSK66BD16FA6C60D",
+      "statement": "Cumulative Radio 365 secure stream returns audio HTTP 200 on daily checks 2026-10-01 through 2026-10-07",
+      "agent": "agent:CWI_Athena",
+      "confidence": 0.65,
+      "made_at": "2026-09-30T14:09:34.614Z",
+      "deadline_at": "2026-10-08T03:59:00Z",
+      "resolution": "PASS iff the secure stream URL returns HTTP 200 with audio content on each of 7 daily curl checks 10/01-10/07; native fallback: none needed, mechanism is the live server; evidence: dated curl log file",
+      "status": "open",
+      "resolved_at": null,
+      "outcome": null,
+      "evidence": null,
+      "brier": null
+    },
+    {
+      "id": "PRD01K3PACE642E24C5878CF30",
+      "statement": "A TAG CITY Blender-native GLB candidate is scored by CWI_Visual's visual gate by 2026-10-07 23:59 ET",
+      "agent": "agent:CWI_Athena",
+      "confidence": 0.35,
+      "made_at": "2026-09-30T14:09:34.916Z",
+      "deadline_at": "2026-10-08T03:59:00Z",
+      "resolution": "PASS iff a gate-state record shows a Blender-native GLB scored PASS/CONDITIONAL/FAIL (a scored candidate, not NO CANDIDATE) by deadline; native fallback registered: CWI_Tween Blender programmatic build -> render_glb.py -> Iris gate; evidence: GATE-STATE file",
+      "status": "open",
+      "resolved_at": null,
+      "outcome": null,
+      "evidence": null,
+      "brier": null
     }
   ]
 }
